@@ -1,0 +1,58 @@
+{
+  "name": "FaScraper",
+  "version": "0.1.0",
+  "manifest_version": 3,
+  "description": "FaScraper, pengekstrak dan mengekspor sebagai file Excel atau CSV.",
+  "action": {
+    "default_icon": {
+      "16": "pokeball16.png",
+      "32": "pokeball32.png",
+      "64": "pokeball64.png"
+    },
+    "default_title": "FaScraper"
+  },
+  "permissions": [
+    "scripting",
+    "activeTab",
+    "tabs",
+    "downloads",
+    "storage",
+    "webRequest"
+  ],
+  "host_permissions": [
+    "<all_urls>",
+    "https://www.google-analytics.com/*"
+  ],
+  "icons": {
+    "16": "pokeball16.png",
+    "32": "pokeball32.png",
+    "64": "pokeball64.png",
+    "128": "pokeball128.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "css": ["onload.css"],
+      "js": [
+        "js/jquery-3.1.1.min.js",
+        "js/sha256.min.js",
+        "google.js",
+        "onload.js"
+      ]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "popup.html",
+        "css/*",
+        "js/*",
+        "webrobots_logo.png"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
